@@ -3,18 +3,45 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tags | ikapop</title>
+  <title>cocoapods使用 | ikapop</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="http://ikapop.com/tags/index.html">
+  <meta name="description" content="CocoaPods
+写在前面，我的环境是OS X 10.11.1  Xcode 7.1 
+
+ CocoaPods是第三方依赖库管理工具,    在iOS开发中非常流行，基本是成为第三方依赖库管理的事实标准。
+
+官网
+github地址
+
+如何使用1.修改ruby源,官方是国外的源，由于某种神奇的东西，速度奇慢，还经常上不了，改为国内的淘宝源
+12gem sources --add https://r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cocoapods使用">
+<meta property="og:url" content="http://ikapop.com/2015/12/10/cocoapods使用/index.html">
 <meta property="og:site_name" content="ikapop">
-<meta property="og:description" content="iOS">
-<meta property="og:updated_time" content="2015-12-09T05:39:12.000Z">
+<meta property="og:description" content="CocoaPods
+写在前面，我的环境是OS X 10.11.1  Xcode 7.1 
+
+ CocoaPods是第三方依赖库管理工具,    在iOS开发中非常流行，基本是成为第三方依赖库管理的事实标准。
+
+官网
+github地址
+
+如何使用1.修改ruby源,官方是国外的源，由于某种神奇的东西，速度奇慢，还经常上不了，改为国内的淘宝源
+12gem sources --add https://r">
+<meta property="og:updated_time" content="2015-12-10T10:49:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tags">
-<meta name="twitter:description" content="iOS">
+<meta name="twitter:title" content="cocoapods使用">
+<meta name="twitter:description" content="CocoaPods
+写在前面，我的环境是OS X 10.11.1  Xcode 7.1 
+
+ CocoaPods是第三方依赖库管理工具,    在iOS开发中非常流行，基本是成为第三方依赖库管理的事实标准。
+
+官网
+github地址
+
+如何使用1.修改ruby源,官方是国外的源，由于某种神奇的东西，速度奇慢，还经常上不了，改为国内的淘宝源
+12gem sources --add https://r">
   
   
     <link rel="icon" href="favicon.png">
@@ -134,16 +161,106 @@
 </aside>
 
       
-      <section id="main"><section class="layout-wrap">
-  <div class="layout-title">
-    <span>Tags</span>
-  </div>
-  <div class="layout-wrap-inner tag-cloud">
+      <section id="main"><article id="post-cocoapods使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-      <a href="/tags/iOS-CocoaPods/" style="font-size: 14px;">iOS CocoaPods</a>
     
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      cocoapods使用
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/12/10/cocoapods使用/">
+      <time datetime="2015-12-10T10:06:54.000Z" itemprop="datePublished">2015-12-10</time>
+    </a>
   </div>
-</section></section>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h2 id="CocoaPods"><a href="#CocoaPods" class="headerlink" title="CocoaPods"></a>CocoaPods</h2><blockquote>
+<p>写在前面，我的环境是OS X 10.11.1  Xcode 7.1 </p>
+</blockquote>
+<p> CocoaPods是第三方依赖库管理工具,    在iOS开发中非常流行，基本是成为第三方依赖库管理的事实标准。</p>
+<blockquote>
+<p><a href="https://cocoapods.org/" target="_blank" rel="external">官网</a></p>
+<p><a href="https://github.com/CocoaPods/CocoaPods" target="_blank" rel="external">github地址</a></p>
+</blockquote>
+<h2 id="u5982_u4F55_u4F7F_u7528"><a href="#u5982_u4F55_u4F7F_u7528" class="headerlink" title="如何使用"></a>如何使用</h2><p>1.修改ruby源,官方是国外的源，由于某种神奇的东西，速度奇慢，还经常上不了，改为国内的淘宝源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/</span><br><span class="line">gem sources <span class="operator">-l</span></span><br></pre></td></tr></table></figure>
+<p>2.安装cocoapods</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem install cocoapods (sudo npm install cocoapods)</span><br></pre></td></tr></table></figure>
+<p>3.cd 工程的根目录</p>
+<blockquote>
+<p>切换到工程根目录</p>
+</blockquote>
+<p>4.touch Podfile</p>
+<blockquote>
+<p>创建Podfile文件</p>
+</blockquote>
+<p>5.vim Podfile(写入内容)</p>
+<blockquote>
+<p>pod ‘xxx’,’~&gt; y’</p>
+<p>xxx表示第三方库名称，y表示第三方库的版本号<br>6.在Podfile中添加需要的库</p>
+</blockquote>
+<p>7.pod search XX</p>
+<blockquote>
+<p>搜索名字XX的库，搜索结果会显示如何添加到Podfile中<br>8.pod install</p>
+</blockquote>
+<p>9.工程名字.xcworkspace</p>
+<blockquote>
+<p>install 结束后，根目录下会多出个工程名字.xcworkspace的文件，双击打开工程就行了</p>
+</blockquote>
+<p>10.在build setting 添加searchpath（$SRCROOT）</p>
+<blockquote>
+<p>会在#import时提醒</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ikapop.com/2015/12/10/cocoapods使用/" data-id="cii04nkws0004scq0xn3onyix" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-CocoaPods/">iOS CocoaPods</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/10/hexo写博客/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          hexo写博客
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+  
+</article>
+
+
+</section>
       
         <aside id="sidebar">
   
