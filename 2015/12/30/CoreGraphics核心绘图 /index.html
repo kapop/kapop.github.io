@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ikapop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CoreGraphics核心绘图1. 什么是核心绘图CoreGraphics.framework 是iOS 内置的用于画图的框架，可以画自定义的几何图形，它支持图形上下文、加载图像、绘制图像，等等。
+2. 核心绘图的基本使用图形上下文类似画家的画布，承载绘图动作。绘图动作顺序执行，新动作在前一个动作的基础上完成。最常见的用法是继承一个UIView的子类，重载其drawRect。视图刷新或者重绘dr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ikapop">
+<meta property="og:url" content="http://ikapop.com/2015/12/30/CoreGraphics核心绘图 /index.html">
+<meta property="og:site_name" content="ikapop">
+<meta property="og:description" content="CoreGraphics核心绘图1. 什么是核心绘图CoreGraphics.framework 是iOS 内置的用于画图的框架，可以画自定义的几何图形，它支持图形上下文、加载图像、绘制图像，等等。
+2. 核心绘图的基本使用图形上下文类似画家的画布，承载绘图动作。绘图动作顺序执行，新动作在前一个动作的基础上完成。最常见的用法是继承一个UIView的子类，重载其drawRect。视图刷新或者重绘dr">
+<meta property="og:updated_time" content="2015-12-22T09:21:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ikapop">
+<meta name="twitter:description" content="CoreGraphics核心绘图1. 什么是核心绘图CoreGraphics.framework 是iOS 内置的用于画图的框架，可以画自定义的几何图形，它支持图形上下文、加载图像、绘制图像，等等。
+2. 核心绘图的基本使用图形上下文类似画家的画布，承载绘图动作。绘图动作顺序执行，新动作在前一个动作的基础上完成。最常见的用法是继承一个UIView的子类，重载其drawRect。视图刷新或者重绘dr">
+  
+  
+    <link rel="icon" href="favicon.png">
+  
+  
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  
+
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/css/images/logo.png)"></i><span class="site-title">ikapop</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/.">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="http://7xp2md.com1.z0.glb.clouddn.com/resizeApi.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://ikapop.com"></form>
+        
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/.">Home</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/about">About</a></td>
+        
+        <td>
+          
+            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://ikapop.com"></form>
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="http://7xp2md.com1.z0.glb.clouddn.com/resizeApi.png">
+      <h2 id="name">ikapop</h2>
+      <h3 id="title">iOS Developer &amp; Java Web</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Beijing, China</span>
+      <a id="follow" href="https://github.com/kapop">关注我</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        8
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        2
+        <span>标签</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/kapop" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="https://twitter.com/funkapop" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+          
+          <td><a href="/#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+          
+          <td><a href="/#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+          
+          <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-CoreGraphics核心绘图 " class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h2 id="CoreGraphics_u6838_u5FC3_u7ED8_u56FE"><a href="#CoreGraphics_u6838_u5FC3_u7ED8_u56FE" class="headerlink" title="CoreGraphics核心绘图"></a>CoreGraphics核心绘图</h2><h3 id="1-__u4EC0_u4E48_u662F_u6838_u5FC3_u7ED8_u56FE"><a href="#1-__u4EC0_u4E48_u662F_u6838_u5FC3_u7ED8_u56FE" class="headerlink" title="1. 什么是核心绘图"></a>1. 什么是核心绘图</h3><p>CoreGraphics.framework 是iOS 内置的用于画图的框架，可以画自定义的几何图形，它支持图形上下文、加载图像、绘制图像，等等。</p>
+<h3 id="2-__u6838_u5FC3_u7ED8_u56FE_u7684_u57FA_u672C_u4F7F_u7528"><a href="#2-__u6838_u5FC3_u7ED8_u56FE_u7684_u57FA_u672C_u4F7F_u7528" class="headerlink" title="2. 核心绘图的基本使用"></a>2. 核心绘图的基本使用</h3><p>图形上下文类似画家的画布，承载绘图动作。绘图动作顺序执行，新动作在前一个动作的基础上完成。<br>最常见的用法是继承一个UIView的子类，重载其drawRect。视图刷新或者重绘drawRect都会被调用。调用频率很高，所以应该极为轻量级。<br>从不直接调用drawRect，需要重绘使用setNeedDisplay（作用是让iOS根据它的安排调用drawRect）。<br>图形上下文的属性是状态相关的，改变属性会影响所有后续操作。</p>
+<h4 id="281_29_u9996_u5148_u521B_u5EFA_u4E00_u4E2A_u7C7B"><a href="#281_29_u9996_u5148_u521B_u5EFA_u4E00_u4E2A_u7C7B" class="headerlink" title="(1)首先创建一个类"></a>(1)首先创建一个类</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Canvas</span> : <span class="title">UIView</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//==实现==</span></span><br><span class="line"><span class="preprocessor">#import <span class="title">"Canvas.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Canvas</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line">// Only override drawRect: if you perform custom drawing.</span><br><span class="line">// An empty implementation adversely affects performance during animation.</span><br><span class="line">- (void)drawRect:(CGRect)rect &#123;</span><br><span class="line">    // Drawing code</span><br><span class="line">&#125;</span><br><span class="line">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h4 id="282_29_u753B_u4E00_u6761_u7EBF"><a href="#282_29_u753B_u4E00_u6761_u7EBF" class="headerlink" title="(2)画一条线"></a>(2)画一条线</h4><p>Canvas.m中添加方法</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)drawLine</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGPoint</span> startPoint = <span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="built_in">CGPoint</span> endPoint = <span class="built_in">CGPointMake</span>(<span class="number">20</span>, <span class="number">20</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//画直线</span></span><br><span class="line">    <span class="comment">// 可以获得图形上下文</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    <span class="comment">//设置起点和终点</span></span><br><span class="line">    <span class="built_in">CGContextMoveToPoint</span>(context, startPoint<span class="variable">.x</span>, startPoint<span class="variable">.y</span>);</span><br><span class="line">    <span class="built_in">CGContextAddLineToPoint</span>(context, endPoint<span class="variable">.x</span>,endPoint<span class="variable">.y</span>);</span><br><span class="line">    <span class="comment">//设置线宽</span></span><br><span class="line">    <span class="built_in">CGContextSetLineWidth</span>(context, <span class="number">1</span>);</span><br><span class="line">    <span class="comment">//设置颜色</span></span><br><span class="line">    [[<span class="built_in">UIColor</span> redColor] setStroke];</span><br><span class="line">    <span class="comment">// 闭合路径描边</span></span><br><span class="line">    <span class="built_in">CGContextStrokePath</span>(context);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="283_29__u53BB_u6389_drawInRect_u7684_u6CE8_u91CA_2C__u6267_u884C_u65B9_u6CD5"><a href="#283_29__u53BB_u6389_drawInRect_u7684_u6CE8_u91CA_2C__u6267_u884C_u65B9_u6CD5" class="headerlink" title="(3) 去掉 drawInRect的注释, 执行方法"></a>(3) 去掉 drawInRect的注释, 执行方法</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (void)<span class="tag">drawRect</span>:(CGRect)<span class="tag">rect</span> &#123;</span><br><span class="line">    <span class="comment">// Drawing code</span></span><br><span class="line">    </span><br><span class="line">    <span class="attr_selector">[self drawLine]</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-__u6838_u5FC3_u7ED8_u56FE_u5E38_u7528_u5B9E_u73B0"><a href="#3-__u6838_u5FC3_u7ED8_u56FE_u5E38_u7528_u5B9E_u73B0" class="headerlink" title="3. 核心绘图常用实现"></a>3. 核心绘图常用实现</h3><h4 id="u7ED8_u5236_u6587_u672C"><a href="#u7ED8_u5236_u6587_u672C" class="headerlink" title="绘制文本"></a>绘制文本</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)drawText</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *s = <span class="string">@"我的小狗"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//[s drawAtPoint:CGPointMake(100, 0) withFont:[UIFont systemFontOfSize:34.0]];</span></span><br><span class="line">    [s drawAtPoint:<span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">40</span>) withAttributes:@&#123;<span class="built_in">NSFontAttributeName</span>:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">24</span>],<span class="built_in">NSForegroundColorAttributeName</span>:[<span class="built_in">UIColor</span> blueColor]&#125;];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment">//    NSString *NSFontAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSParagraphStyleAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSForegroundColorAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSUnderlineStyleAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSSuperscriptAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSBackgroundColorAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSAttachmentAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSLigatureAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSBaselineOffsetAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSKernAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSLinkAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSStrokeWidthAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSStrokeColorAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSUnderlineColorAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSStrikethroughStyleAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSStrikethroughColorAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSShadowAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSObliquenessAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSExpansionAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSCursorAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSToolTipAttributeName;</span></span><br><span class="line"><span class="comment">//    NSString *NSMarkedClauseSegmentAttributeName;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u7ED8_u5236_u56FE_u7247"><a href="#u7ED8_u5236_u56FE_u7247" class="headerlink" title="绘制图片"></a>绘制图片</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)drawImage</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIImage</span>* myImageObj = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"2_14.jpg"</span>];</span><br><span class="line">    <span class="comment">//[myImageObj drawAtPoint:CGPointMake(0, 0)];</span></span><br><span class="line">    [myImageObj drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">120</span>, <span class="number">300</span>, <span class="number">128</span>, <span class="number">192</span>)];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//UIImages的-drawRect:方法绘制图像:</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//- [UIImage drawAtPoint:(CGPoint)point]</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//- [UIImage drawInRect:(CGRect)rect]</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//- [UIImage drawAsPatternInRect:(CGRect)rect]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u7ED8_u5236Bezier_u8D1D_u585E_u5C14_u66F2_u7EBF"><a href="#u7ED8_u5236Bezier_u8D1D_u585E_u5C14_u66F2_u7EBF" class="headerlink" title="绘制Bezier贝塞尔曲线"></a>绘制Bezier贝塞尔曲线</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)drawBezier</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGContextRef</span> cgContext = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//CGContextBeginPath(cgContext);</span></span><br><span class="line">    <span class="built_in">CGContextMoveToPoint</span>(cgContext, <span class="number">333</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">CGContextAddCurveToPoint</span>(cgContext, <span class="number">333</span>, <span class="number">0</span>, <span class="number">332</span>, <span class="number">26</span>, <span class="number">330</span>, <span class="number">26</span>);</span><br><span class="line">    <span class="built_in">CGContextAddCurveToPoint</span>(cgContext, <span class="number">330</span>, <span class="number">26</span>, <span class="number">299</span>, <span class="number">20</span>, <span class="number">299</span>, <span class="number">17</span>);</span><br><span class="line">    <span class="built_in">CGContextAddLineToPoint</span>(cgContext, <span class="number">296</span>, <span class="number">17</span>);</span><br><span class="line">    <span class="built_in">CGContextAddCurveToPoint</span>(cgContext, <span class="number">296</span>, <span class="number">17</span>, <span class="number">296</span>, <span class="number">19</span>, <span class="number">291</span>, <span class="number">19</span>);</span><br><span class="line">    <span class="built_in">CGContextAddLineToPoint</span>(cgContext, <span class="number">250</span>, <span class="number">19</span>);</span><br><span class="line">    <span class="built_in">CGContextAddCurveToPoint</span>(cgContext, <span class="number">250</span>, <span class="number">19</span>, <span class="number">241</span>, <span class="number">24</span>, <span class="number">238</span>, <span class="number">19</span>);</span><br><span class="line">    <span class="built_in">CGContextAddCurveToPoint</span>(cgContext, <span class="number">236</span>, <span class="number">20</span>, <span class="number">234</span>, <span class="number">24</span>, <span class="number">227</span>, <span class="number">24</span>);</span><br><span class="line">    <span class="built_in">CGContextAddCurveToPoint</span>(cgContext, <span class="number">220</span>, <span class="number">24</span>, <span class="number">217</span>, <span class="number">19</span>, <span class="number">216</span>, <span class="number">19</span>);</span><br><span class="line">    <span class="built_in">CGContextAddCurveToPoint</span>(cgContext, <span class="number">214</span>, <span class="number">20</span>, <span class="number">211</span>, <span class="number">22</span>, <span class="number">207</span>, <span class="number">20</span>);</span><br><span class="line">    <span class="built_in">CGContextAddCurveToPoint</span>(cgContext, <span class="number">207</span>, <span class="number">20</span>, <span class="number">187</span>, <span class="number">20</span>, <span class="number">182</span>, <span class="number">21</span>);</span><br><span class="line">    <span class="built_in">CGContextAddLineToPoint</span>(cgContext, <span class="number">100</span>, <span class="number">45</span>);</span><br><span class="line">    <span class="built_in">CGContextAddLineToPoint</span>(cgContext, <span class="number">97</span>, <span class="number">46</span>);</span><br><span class="line">    <span class="built_in">CGContextAddCurveToPoint</span>(cgContext, <span class="number">97</span>, <span class="number">46</span>, <span class="number">86</span>, <span class="number">71</span>, <span class="number">64</span>, <span class="number">72</span>);</span><br><span class="line">    <span class="built_in">CGContextAddCurveToPoint</span>(cgContext, <span class="number">42</span>, <span class="number">74</span>, <span class="number">26</span>, <span class="number">56</span>, <span class="number">23</span>, <span class="number">48</span>);</span><br><span class="line">    <span class="built_in">CGContextAddLineToPoint</span>(cgContext, <span class="number">9</span>, <span class="number">47</span>);</span><br><span class="line">    <span class="built_in">CGContextAddCurveToPoint</span>(cgContext, <span class="number">9</span>, <span class="number">47</span>, <span class="number">0</span>, <span class="number">31</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGContextStrokePath</span>(cgContext);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u7ED8_u5236_u5F27_u7EBF"><a href="#u7ED8_u5236_u5F27_u7EBF" class="headerlink" title="绘制弧线"></a>绘制弧线</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)drawCurve</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGPoint</span> startPoint = <span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="built_in">CGPoint</span> controlPoint1 = <span class="built_in">CGPointMake</span>(<span class="number">0</span>, <span class="number">150</span>);</span><br><span class="line">    <span class="built_in">CGPoint</span> controlPoint2 = <span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">    <span class="built_in">CGPoint</span> endPoint = <span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">250</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGContextRef</span>     context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGContextMoveToPoint</span>(context, startPoint<span class="variable">.x</span>, startPoint<span class="variable">.y</span>);</span><br><span class="line">    <span class="built_in">CGContextAddCurveToPoint</span>(context,</span><br><span class="line">                             controlPoint1<span class="variable">.x</span>,</span><br><span class="line">                             controlPoint1<span class="variable">.y</span>,</span><br><span class="line">                             controlPoint2<span class="variable">.x</span>,</span><br><span class="line">                             controlPoint2<span class="variable">.y</span>,</span><br><span class="line">                             endPoint<span class="variable">.x</span>,</span><br><span class="line">                             endPoint<span class="variable">.y</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGContextDrawPath</span>(context,k<span class="built_in">CGPathStroke</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u7ED8_u5236_u4E09_u89D2_u5F62"><a href="#u7ED8_u5236_u4E09_u89D2_u5F62" class="headerlink" title="绘制三角形"></a>绘制三角形</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)drawTriangle</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGContextMoveToPoint</span> (context, <span class="number">75</span>, <span class="number">10</span>);</span><br><span class="line">    <span class="built_in">CGContextAddLineToPoint</span> (context, <span class="number">10</span>, <span class="number">150</span>);</span><br><span class="line">    <span class="built_in">CGContextAddLineToPoint</span> (context, <span class="number">160</span>, <span class="number">150</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Closing the path connects the current point to the start of the current path.</span></span><br><span class="line">    <span class="built_in">CGContextClosePath</span>(context);</span><br><span class="line">    <span class="comment">// And stroke the path</span></span><br><span class="line">    [[<span class="built_in">UIColor</span> blackColor] setStroke];</span><br><span class="line">    <span class="comment">//CGContextStrokePath(context);</span></span><br><span class="line">    [[<span class="built_in">UIColor</span> redColor] setFill];</span><br><span class="line">    <span class="built_in">CGContextDrawPath</span>(context, k<span class="built_in">CGPathFillStroke</span>);</span><br><span class="line">    <span class="comment">//kCGPathFillStroke,kCGPathFill,kCGPathStroke</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u7ED8_u5236_u5706"><a href="#u7ED8_u5236_u5706" class="headerlink" title="绘制圆"></a>绘制圆</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)drawCircle</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//CGContextRef不解释了，x,y为圆点坐标，startAngle为开始的弧度，endAngle为 结束的弧度，clockwise 0为顺时针，1为逆时针。</span></span><br><span class="line">    <span class="built_in">CGContextAddArc</span>(context, <span class="number">100</span>, <span class="number">250</span>, <span class="number">50</span>, <span class="number">0</span>, M_PI*<span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGContextDrawPath</span>(context, k<span class="built_in">CGPathStroke</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u7ED8_u5236_u77E9_u5F62"><a href="#u7ED8_u5236_u77E9_u5F62" class="headerlink" title="绘制矩形"></a>绘制矩形</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)drawRect</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGContextAddRect</span>(context, <span class="built_in">CGRectMake</span>(<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>));</span><br><span class="line">    <span class="comment">//设置颜色</span></span><br><span class="line">    [[<span class="built_in">UIColor</span> redColor] setStroke];</span><br><span class="line">    [[<span class="built_in">UIColor</span> blueColor] setFill];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//CGContextStrokePath(context);                 //空心</span></span><br><span class="line">    <span class="comment">//CGContextDrawPath(context, kCGPathStroke);    //空心</span></span><br><span class="line">    <span class="built_in">CGContextDrawPath</span>(context, k<span class="built_in">CGPathFillStroke</span>);  <span class="comment">//实心</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u7ED8_u5236_u7EBF"><a href="#u7ED8_u5236_u7EBF" class="headerlink" title="绘制线"></a>绘制线</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)drawLine</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGPoint</span> startPoint = <span class="built_in">CGPointMake</span>(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="built_in">CGPoint</span> endPoint = <span class="built_in">CGPointMake</span>(<span class="number">0</span>, <span class="number">20</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//画直线</span></span><br><span class="line">    <span class="comment">// 可以获得图形上下文</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    <span class="comment">//设置起点和终点</span></span><br><span class="line">    <span class="built_in">CGContextMoveToPoint</span>(context, startPoint<span class="variable">.x</span>, startPoint<span class="variable">.y</span>);</span><br><span class="line">    <span class="built_in">CGContextAddLineToPoint</span>(context, endPoint<span class="variable">.x</span>,endPoint<span class="variable">.y</span>);</span><br><span class="line">    <span class="comment">//设置线宽</span></span><br><span class="line">    <span class="built_in">CGContextSetLineWidth</span>(context, <span class="number">1</span>);</span><br><span class="line">    <span class="comment">//设置颜色</span></span><br><span class="line">    [[<span class="built_in">UIColor</span> redColor] setStroke];</span><br><span class="line">    <span class="comment">// 闭合路径描边</span></span><br><span class="line">    <span class="built_in">CGContextStrokePath</span>(context);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ikapop.com/2015/12/30/CoreGraphics核心绘图 /" data-id="ciis8217s000dtkq04f9jjlrk" class="article-share-link">分享到</a>
+      
+        <a href="http://ikapop.com/2015/12/30/CoreGraphics核心绘图 /#disqus_thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/12/25/XMPP即时通讯/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/30/CoreGraphics核心绘图 /" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/12/30/CoreGraphics核心绘图 /" class="title"></a></p>
+              <p class="item-date"><time datetime="2015-12-30T02:43:12.000Z" itemprop="datePublished">2015-12-30</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/25/XMPP即时通讯/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/12/25/XMPP即时通讯/" class="title"></a></p>
+              <p class="item-date"><time datetime="2015-12-25T02:25:19.000Z" itemprop="datePublished">2015-12-25</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/24/核心数据? 有什么用途/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/12/24/核心数据? 有什么用途/" class="title"></a></p>
+              <p class="item-date"><time datetime="2015-12-24T07:01:29.000Z" itemprop="datePublished">2015-12-24</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/24/通讯录使用/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/12/24/通讯录使用/" class="title"></a></p>
+              <p class="item-date"><time datetime="2015-12-24T03:01:11.000Z" itemprop="datePublished">2015-12-24</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/23/Core Animation 核心动画/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/12/23/Core Animation 核心动画/" class="title"></a></p>
+              <p class="item-date"><time datetime="2015-12-23T06:33:04.000Z" itemprop="datePublished">2015-12-23</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-github/">hexo github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS-CocoaPods/">iOS CocoaPods</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/hexo-github/" style="font-size: 10px;">hexo github</a> <a href="/tags/iOS-CocoaPods/" style="font-size: 10px;">iOS CocoaPods</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 ikapop<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>. 
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256948974'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256948974%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+ 
+    </div>
+  </div>
+</footer>
+
+    
+
+<script>
+  var disqus_shortname = 'ikapop';
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?6a09f163754848b201d123ce1ca9f09f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	    s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+
+
+  </div>
+</body>
+</html>

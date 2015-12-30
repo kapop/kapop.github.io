@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ikapop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="XMPP即时通讯1. 什么是XMPP, 实现的功能?全称:可扩展通讯和表示协议
+简介:可扩展通讯和表示协议 (XMPP) 可用于服务类实时通讯、表示和需求响应服务中的XML数据元流式传输。XMPP以Jabber协议为基础，而Jabber是即时通讯中常用的开放式协议。XMPP is the IETF’s formalization of the base XML streaming protocol">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ikapop">
+<meta property="og:url" content="http://ikapop.com/2015/12/25/XMPP即时通讯/index.html">
+<meta property="og:site_name" content="ikapop">
+<meta property="og:description" content="XMPP即时通讯1. 什么是XMPP, 实现的功能?全称:可扩展通讯和表示协议
+简介:可扩展通讯和表示协议 (XMPP) 可用于服务类实时通讯、表示和需求响应服务中的XML数据元流式传输。XMPP以Jabber协议为基础，而Jabber是即时通讯中常用的开放式协议。XMPP is the IETF’s formalization of the base XML streaming protocol">
+<meta property="og:updated_time" content="2015-12-25T02:05:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ikapop">
+<meta name="twitter:description" content="XMPP即时通讯1. 什么是XMPP, 实现的功能?全称:可扩展通讯和表示协议
+简介:可扩展通讯和表示协议 (XMPP) 可用于服务类实时通讯、表示和需求响应服务中的XML数据元流式传输。XMPP以Jabber协议为基础，而Jabber是即时通讯中常用的开放式协议。XMPP is the IETF’s formalization of the base XML streaming protocol">
+  
+  
+    <link rel="icon" href="favicon.png">
+  
+  
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  
+
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/css/images/logo.png)"></i><span class="site-title">ikapop</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/.">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="http://7xp2md.com1.z0.glb.clouddn.com/resizeApi.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://ikapop.com"></form>
+        
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/.">Home</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/about">About</a></td>
+        
+        <td>
+          
+            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://ikapop.com"></form>
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="http://7xp2md.com1.z0.glb.clouddn.com/resizeApi.png">
+      <h2 id="name">ikapop</h2>
+      <h3 id="title">iOS Developer &amp; Java Web</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Beijing, China</span>
+      <a id="follow" href="https://github.com/kapop">关注我</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        8
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        2
+        <span>标签</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/kapop" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="https://twitter.com/funkapop" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+          
+          <td><a href="/#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+          
+          <td><a href="/#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+          
+          <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-XMPP即时通讯" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h1 id="XMPP_u5373_u65F6_u901A_u8BAF"><a href="#XMPP_u5373_u65F6_u901A_u8BAF" class="headerlink" title="XMPP即时通讯"></a>XMPP即时通讯</h1><h3 id="1-__u4EC0_u4E48_u662FXMPP_2C__u5B9E_u73B0_u7684_u529F_u80FD_3F"><a href="#1-__u4EC0_u4E48_u662FXMPP_2C__u5B9E_u73B0_u7684_u529F_u80FD_3F" class="headerlink" title="1. 什么是XMPP, 实现的功能?"></a>1. 什么是XMPP, 实现的功能?</h3><p>全称:可扩展通讯和表示协议</p>
+<p>简介:可扩展通讯和表示协议 (XMPP) 可用于服务类实时通讯、表示和需求响应服务中的XML数据元流式传输。XMPP以Jabber协议为基础，而Jabber是即时通讯中常用的开放式协议。XMPP is the IETF’s formalization of the base XML streaming protocols for instant messaging and presence developed within the Jabber open-source community in 1999</p>
+<p>XMPP（可扩展消息处理现场协议）是基于可扩展标记语言（XML）的协议，它用于即时消息（IM）以及在线现场探测。它在促进服务器之间的准即时操作。这个协议可能最终允许因特网用户向因特网上的其他任何人发送即时消息，即使其操作系统和浏览器不同。</p>
+<p>XMPP的前身是Jabber，一个开源形式组织产生的网络即时通信协议。XMPP目前被IETF国际标准组织完成了标准化工作。标准化的核心结果分为两部分；<br>核心的XML流传输协议<br>基于XMLFreeEIM流传输的即时通讯扩展应用</p>
+<p>XMPP的核心XML流传输协议的定义使得XMPP能够在一个比以往网络通信协议更规范的平台上。借助于XML易于解析和阅读的特性，使得XMPP的协议能够非常漂亮。<br>XMPP的即时通讯扩展应用部分是根据IETF在这之前对即时通讯的一个抽象定义的，与其他业已得到广泛使用的即时通讯协议，诸如AIM，QQ等有功能完整，完善等先进性。</p>
+<p>XMPP的扩展协议Jingle使得其支持语音和视频。</p>
+<p>XMPP的官方文档是RFC 3920.</p>
+<h3 id="2-_XMPP_u914D_u7F6E"><a href="#2-_XMPP_u914D_u7F6E" class="headerlink" title="2. XMPP配置"></a>2. XMPP配置</h3><h4 id="u5BFC_u5165_u5F00_u53D1_u5305"><a href="#u5BFC_u5165_u5F00_u53D1_u5305" class="headerlink" title="导入开发包"></a>导入开发包</h4><p>XMPPFramework</p>
+<h4 id="u5BFC_u5165_u4F9D_u8D56_u5E93"><a href="#u5BFC_u5165_u4F9D_u8D56_u5E93" class="headerlink" title="导入依赖库"></a>导入依赖库</h4><p>需要添加的库</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">libXml2  需要设置$(SDKROOT)/usr/include/libxml2</span><br><span class="line">libresolv</span><br><span class="line">CFNetWork</span><br><span class="line">Security</span><br><span class="line">libidn.<span class="function"><span class="title">a</span><span class="params">(加入xmppFrameWork就有)</span></span></span><br><span class="line">在Xcode5.<span class="number">0</span>需要加入systemConfiguration库防止SCnetWork错误，<span class="number">5.1</span>版本则不需要</span><br></pre></td></tr></table></figure>
+<h3 id="3-_XMPP_u5355_u4F8B_u7BA1_u7406_u7C7B"><a href="#3-_XMPP_u5355_u4F8B_u7BA1_u7406_u7C7B" class="headerlink" title="3. XMPP单例管理类"></a>3. XMPP单例管理类</h3><h4 id="u5305_u542B_u5934_u6587_u4EF6"><a href="#u5305_u542B_u5934_u6587_u4EF6" class="headerlink" title="包含头文件"></a>包含头文件</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">#import <span class="title">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#import <span class="title">"XMPPFramework.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#import <span class="title">"XMPPRoster.h"</span></span></span><br><span class="line"><span class="preprocessor">#import <span class="title">"XMPPRosterMemoryStorage.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#import <span class="title">"XMPPMessageArchiving.h"</span></span></span><br><span class="line"><span class="preprocessor">#import <span class="title">"XMPPMessageArchivingCoreDataStorage.h"</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义服务器</span></span><br><span class="line"><span class="preprocessor">#define kXMPP_HOST @<span class="title">"192.168.1.8"</span></span></span><br><span class="line"><span class="comment">//定义资源</span></span><br><span class="line"><span class="preprocessor">#define kXMPP_RESOURCE @<span class="title">"iPhone"</span></span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#define kXMPP_ROSTER_CHANGE @<span class="title">"kXMPP_ROSTER_CHANGE"</span></span></span><br><span class="line"><span class="preprocessor">#define kXMPP_MESSAGE_CHANGE @<span class="title">"kXMPP_MESSAGE_CHANGE"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ZJXMPPManager</span> : <span class="title">NSObject</span>&lt;<span class="title">XMPPStreamDelegate</span>,<span class="title">XMPPRosterDelegate</span>,<span class="title">XMPPRosterMemoryStorageDelegate</span>,<span class="title">XMPPMessageArchivingStorage</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//单例对象</span></span><br><span class="line">+(instancetype)manager;</span><br><span class="line"></span><br><span class="line"><span class="comment">//流对象</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>,<span class="keyword">nonatomic</span>) X<span class="built_in">MPPStream</span> *xmppStream;</span><br><span class="line"></span><br><span class="line"><span class="comment">//好友模块</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) X<span class="built_in">MPPRoster</span> *xmppRoster;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) X<span class="built_in">MPPRosterMemoryStorage</span> *xmppRosterMemoryStorage;</span><br><span class="line"></span><br><span class="line"><span class="comment">//消息存储模块</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) X<span class="built_in">MPPMessageArchiving</span> *xmppMessageArchiving;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) X<span class="built_in">MPPMessageArchivingCoreDataStorage</span> *xmppMessageArchivingCoreDataStorage;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) X<span class="built_in">MPPPresence</span> *receivePresence;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h4 id="u5355_u4F8B_u7C7B_u5B9E_u73B0"><a href="#u5355_u4F8B_u7C7B_u5B9E_u73B0" class="headerlink" title="单例类实现"></a>单例类实现</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">#import <span class="title">"ZJXMPPManager.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ZJXMPPManager</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ZJXMPPManager</span></span></span><br><span class="line">+(instancetype)manager</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> ZJX<span class="built_in">MPPManager</span> *manager = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">if</span>(manager == <span class="literal">nil</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        manager = [[ZJX<span class="built_in">MPPManager</span> alloc] init];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> manager;</span><br><span class="line">&#125;</span><br><span class="line">-(instancetype)init</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">self</span> = [<span class="keyword">super</span> init])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.xmppStream</span> == <span class="literal">nil</span>) &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//创建初始化</span></span><br><span class="line">            <span class="keyword">self</span><span class="variable">.xmppStream</span> = [[X<span class="built_in">MPPStream</span> alloc] init];</span><br><span class="line">            [<span class="keyword">self</span><span class="variable">.xmppStream</span> addDelegate:<span class="keyword">self</span> delegateQueue:dispatch_get_main_queue()];</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//激活好友模块</span></span><br><span class="line">            [<span class="keyword">self</span> loadRosterModule];</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//激活消息归档模块</span></span><br><span class="line">            [<span class="keyword">self</span> loadMessageArchivingModule];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u6FC0_u6D3B_u6D88_u606F_u6A21_u5757"><a href="#u6FC0_u6D3B_u6D88_u606F_u6A21_u5757" class="headerlink" title="激活消息模块"></a>激活消息模块</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - 消息存储模块</span></span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)loadMessageArchivingModule</span><br><span class="line">&#123;</span><br><span class="line">    _xmppMessageArchivingCoreDataStorage = [X<span class="built_in">MPPMessageArchivingCoreDataStorage</span> sharedInstance];</span><br><span class="line">    _xmppMessageArchiving = [[X<span class="built_in">MPPMessageArchiving</span> alloc] initWithMessageArchivingStorage:_xmppMessageArchivingCoreDataStorage dispatchQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, <span class="number">9</span>)];</span><br><span class="line">    [_xmppMessageArchiving activate:<span class="keyword">self</span><span class="variable">.xmppStream</span>];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.xmppMessageArchiving</span> addDelegate:<span class="keyword">self</span> delegateQueue:dispatch_get_main_queue()];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)archiveMessage:(X<span class="built_in">MPPMessage</span> *)message outgoing:(<span class="built_in">BOOL</span>)isOutgoing xmppStream:(X<span class="built_in">MPPStream</span> *)stream</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"存储消息"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="u6FC0_u6D3B_u597D_u53CB_u6A21_u5757"><a href="#u6FC0_u6D3B_u597D_u53CB_u6A21_u5757" class="headerlink" title="激活好友模块"></a>激活好友模块</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - 好友模块</span></span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)loadRosterModule</span><br><span class="line">&#123;</span><br><span class="line">    _xmppRosterMemoryStorage = [[X<span class="built_in">MPPRosterMemoryStorage</span> alloc] init];</span><br><span class="line">    _xmppRoster = [[X<span class="built_in">MPPRoster</span> alloc] initWithRosterStorage:_xmppRosterMemoryStorage];</span><br><span class="line">    [_xmppRoster activate:<span class="keyword">self</span><span class="variable">.xmppStream</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//同时给_xmppRosterMemoryStorage 和 _xmppRoster都添加了代理</span></span><br><span class="line">    [_xmppRoster addDelegate:<span class="keyword">self</span> delegateQueue:dispatch_get_main_queue()];</span><br><span class="line">    <span class="comment">//设置好友同步策略,XMPP一旦连接成功，同步好友到本地</span></span><br><span class="line">    [_xmppRoster setAutoFetchRoster:<span class="literal">YES</span>]; <span class="comment">//自动同步，从服务器取出好友</span></span><br><span class="line">    <span class="comment">//关掉自动接收好友请求，默认开启自动同意</span></span><br><span class="line">    [_xmppRoster setAutoAcceptKnownPresenceSubscriptionRequests:<span class="literal">NO</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//接收到好友请求</span></span><br><span class="line">-(<span class="keyword">void</span>)xmppRoster:(X<span class="built_in">MPPRoster</span> *)sender didReceivePresenceSubscriptionRequest:(X<span class="built_in">MPPPresence</span> *)presence</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//添加好友一定会订阅对方，但是接受订阅不一定要添加对方为好友</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.receivePresence</span> = presence;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*</span><br><span class="line">    NSString *message = [NSString stringWithFormat:@"【%@】想加你为好友",presence.from.bare];</span><br><span class="line">    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:self cancelButtonTitle:@"拒绝" otherButtonTitles:@"同意", nil];</span><br><span class="line">    [alertView show];</span><br><span class="line">     */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//收到每个好友</span></span><br><span class="line">-(<span class="keyword">void</span>)xmppRoster:(X<span class="built_in">MPPRoster</span> *)sender didReceiveRosterItem:(DDXMLElement *)item</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)xmppRosterDidBeginPopulating:(X<span class="built_in">MPPRoster</span> *)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"开始同步好友列表"</span>);</span><br><span class="line">&#125;</span><br><span class="line">-(<span class="keyword">void</span>)xmppRosterDidEndPopulating:(X<span class="built_in">MPPRoster</span> *)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"结束同步好友列表"</span>);</span><br><span class="line">    </span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:kX<span class="built_in">MPP_ROSTER_CHANGE</span> object:<span class="literal">nil</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//XMPPRosterMemoryStorage delegate</span></span><br><span class="line"><span class="comment">//  如果不是初始化好友变了, 自动同步</span></span><br><span class="line">-(<span class="keyword">void</span>)xmppRosterDidChange:(X<span class="built_in">MPPRosterMemoryStorage</span> *)sender</span><br><span class="line">&#123;</span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] postNotificationName:kX<span class="built_in">MPP_ROSTER_CHANGE</span> object:<span class="literal">nil</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-__u8FDE_u63A5_u670D_u52A1_u5668"><a href="#4-__u8FDE_u63A5_u670D_u52A1_u5668" class="headerlink" title="4. 连接服务器"></a>4. 连接服务器</h3><h4 id="u8FDE_u63A5_u64CD_u4F5C"><a href="#u8FDE_u63A5_u64CD_u4F5C" class="headerlink" title="连接操作"></a>连接操作</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - 连接服务器</span></span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)connect</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *username = <span class="string">@"temp"</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *host = kX<span class="built_in">MPP_HOST</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *resource = kX<span class="built_in">MPP_RESOURCE</span>;</span><br><span class="line">    </span><br><span class="line">    X<span class="built_in">MPPJID</span> *jid = [X<span class="built_in">MPPJID</span> jidWithUser:username domain:host resource:resource];</span><br><span class="line">    [_xmppStream setMyJID:jid];</span><br><span class="line">    [_xmppStream setHostName:host];</span><br><span class="line">    <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">if</span> (![_xmppStream connectWithTimeout:<span class="number">10</span> error:&amp;error]) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Connect Error: %@"</span>, [[error userInfo] description]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">-(<span class="keyword">void</span>)xmppStreamDidConnect:(X<span class="built_in">MPPStream</span> *)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"连接成功"</span>);</span><br><span class="line">&#125;</span><br><span class="line">-(<span class="keyword">void</span>)xmppStreamDidDisconnect:(X<span class="built_in">MPPStream</span> *)sender withError:(<span class="built_in">NSError</span> *)error</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"连接失败"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5-__u767B_u9646_u64CD_u4F5C"><a href="#5-__u767B_u9646_u64CD_u4F5C" class="headerlink" title="5. 登陆操作"></a>5. 登陆操作</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - 登陆</span></span><br><span class="line">-(<span class="keyword">void</span>)login</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *username = _username<span class="variable">.text</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *password = _password<span class="variable">.text</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取用户名, 设置新的jid</span></span><br><span class="line">    X<span class="built_in">MPPJID</span> *jid = [X<span class="built_in">MPPJID</span> jidWithUser:username domain:kX<span class="built_in">MPP_HOST</span> resource:kX<span class="built_in">MPP_RESOURCE</span>];</span><br><span class="line">    _xmppStream<span class="variable">.myJID</span> = jid;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//连接成功后认证用户名和密码</span></span><br><span class="line">    <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line">    [_xmppStream authenticateWithPassword:password error:&amp;error];</span><br><span class="line">    <span class="keyword">if</span> (error) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"认证错误：%@"</span>,[error localizedDescription]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">-(<span class="keyword">void</span>)xmppStreamDidAuthenticate:(X<span class="built_in">MPPStream</span> *)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"认证成功"</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//发送上线通知</span></span><br><span class="line">    X<span class="built_in">MPPPresence</span> *presence = [X<span class="built_in">MPPPresence</span> presence];</span><br><span class="line">    [_xmppStream sendElement:presence];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> showList];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">-(<span class="keyword">void</span>)xmppStream:(X<span class="built_in">MPPStream</span> *)sender didNotAuthenticate:(DDXMLElement *)error</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"认证失败"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="6-__u6CE8_u518C_u64CD_u4F5C"><a href="#6-__u6CE8_u518C_u64CD_u4F5C" class="headerlink" title="6. 注册操作"></a>6. 注册操作</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - 注册用户</span></span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)reg</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"开始注册"</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *username = _usernameTextField<span class="variable">.text</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *password = _passwordTextField<span class="variable">.text</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *host = <span class="string">@"1000phone.net"</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *resource = <span class="string">@"iPhone"</span>;</span><br><span class="line">    </span><br><span class="line">    X<span class="built_in">MPPJID</span> *jid = [X<span class="built_in">MPPJID</span> jidWithUser:username domain:host resource:resource];</span><br><span class="line">    [_xmppStream setMyJID:jid];</span><br><span class="line">    <span class="built_in">NSError</span> *error=<span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">if</span> (![_xmppStream registerWithPassword:password error:&amp;error])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"创建错误 error=%@"</span>,error);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">-(<span class="keyword">void</span>)xmppStreamDidRegister:(X<span class="built_in">MPPStream</span> *)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"注册成功"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)xmppStream:(X<span class="built_in">MPPStream</span> *)sender didNotRegister:(DDXMLElement *)error</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"注册失败, error = %@"</span>,error);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="7-__u83B7_u53D6_u597D_u53CB_u5217_u8868"><a href="#7-__u83B7_u53D6_u597D_u53CB_u5217_u8868" class="headerlink" title="7. 获取好友列表"></a>7. 获取好友列表</h4><p>首先执行获取方法</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span> rosterChange];</span><br><span class="line"></span><br><span class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(rosterChange) name:kX<span class="built_in">MPP_ROSTER_CHANGE</span> object:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
+<p>获取数据</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)rosterChange</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//从存储器中取出我得好友数组，更新数据源</span></span><br><span class="line">    X<span class="built_in">MPPRosterMemoryStorage</span> *storage = [ZJX<span class="built_in">MPPManager</span> manager]<span class="variable">.xmppRosterMemoryStorage</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//对象类型 XMPPUserMemoryStorageObject *user</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.contacts</span> = [<span class="built_in">NSMutableArray</span> arrayWithArray:storage<span class="variable">.unsortedUsers</span>];</span><br><span class="line">    </span><br><span class="line">    [_tableView reloadData];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="8-__u53D1_u9001_u6D88_u606F"><a href="#8-__u53D1_u9001_u6D88_u606F" class="headerlink" title="8. 发送消息"></a>8. 发送消息</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">X<span class="built_in">MPPMessage</span> *message = [X<span class="built_in">MPPMessage</span> messageWithType:<span class="string">@"chat"</span> to:<span class="keyword">self</span><span class="variable">.chatJID</span>];</span><br><span class="line">[message addBody:_messageTextField<span class="variable">.text</span>];</span><br><span class="line">[_xmppStream sendElement:message];</span><br></pre></td></tr></table></figure>
+<h4 id="9-__u63A5_u53D7_u6D88_u606F"><a href="#9-__u63A5_u53D7_u6D88_u606F" class="headerlink" title="9. 接受消息"></a>9. 接受消息</h4><p>首先添加代理</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_xmppStream = [ZJX<span class="built_in">MPPManager</span> manager]<span class="variable">.xmppStream</span>;</span><br><span class="line">[_xmppStream addDelegate:<span class="keyword">self</span> delegateQueue:dispatch_get_main_queue()];</span><br></pre></td></tr></table></figure>
+<p>实现收到消息的代理方法</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)xmppStream:(X<span class="built_in">MPPStream</span> *)sender didReceiveMessage:(X<span class="built_in">MPPMessage</span> *)message</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"message get"</span>);</span><br><span class="line">    </span><br><span class="line">    [_dataArray addObject:message];</span><br><span class="line">    </span><br><span class="line">    [_tableView reloadData];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ikapop.com/2015/12/25/XMPP即时通讯/" data-id="ciis8217n000btkq04hvz3pah" class="article-share-link">分享到</a>
+      
+        <a href="http://ikapop.com/2015/12/25/XMPP即时通讯/#disqus_thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/30/CoreGraphics核心绘图 /" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/24/核心数据? 有什么用途/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/30/CoreGraphics核心绘图 /" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/12/30/CoreGraphics核心绘图 /" class="title"></a></p>
+              <p class="item-date"><time datetime="2015-12-30T02:43:12.000Z" itemprop="datePublished">2015-12-30</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/25/XMPP即时通讯/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/12/25/XMPP即时通讯/" class="title"></a></p>
+              <p class="item-date"><time datetime="2015-12-25T02:25:19.000Z" itemprop="datePublished">2015-12-25</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/24/核心数据? 有什么用途/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/12/24/核心数据? 有什么用途/" class="title"></a></p>
+              <p class="item-date"><time datetime="2015-12-24T07:01:29.000Z" itemprop="datePublished">2015-12-24</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/24/通讯录使用/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/12/24/通讯录使用/" class="title"></a></p>
+              <p class="item-date"><time datetime="2015-12-24T03:01:11.000Z" itemprop="datePublished">2015-12-24</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/23/Core Animation 核心动画/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/12/23/Core Animation 核心动画/" class="title"></a></p>
+              <p class="item-date"><time datetime="2015-12-23T06:33:04.000Z" itemprop="datePublished">2015-12-23</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-github/">hexo github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS-CocoaPods/">iOS CocoaPods</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/hexo-github/" style="font-size: 10px;">hexo github</a> <a href="/tags/iOS-CocoaPods/" style="font-size: 10px;">iOS CocoaPods</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 ikapop<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>. 
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256948974'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256948974%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+ 
+    </div>
+  </div>
+</footer>
+
+    
+
+<script>
+  var disqus_shortname = 'ikapop';
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?6a09f163754848b201d123ce1ca9f09f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	    s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ikapop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#CoreData核心数据 (iOS9)
+1.什么是核心数据? 有什么用途1.Core Data 是数据持久化存储的最佳方式
+2.数据最终的存储类型可以是：SQLite数据库，XML，二进制，内存里，或自定义数据类型
+在Mac OS X 10.5Leopard及以后的版本中，开发者也可以通过继承NSPersistentStore类以创建自定义的存储格式
+3.好处：能够合理管理内存，避免使用sql的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ikapop">
+<meta property="og:url" content="http://ikapop.com/2015/12/24/核心数据">
+<meta property="og:site_name" content="ikapop">
+<meta property="og:description" content="#CoreData核心数据 (iOS9)
+1.什么是核心数据? 有什么用途1.Core Data 是数据持久化存储的最佳方式
+2.数据最终的存储类型可以是：SQLite数据库，XML，二进制，内存里，或自定义数据类型
+在Mac OS X 10.5Leopard及以后的版本中，开发者也可以通过继承NSPersistentStore类以创建自定义的存储格式
+3.好处：能够合理管理内存，避免使用sql的">
+<meta property="og:updated_time" content="2015-12-24T06:04:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ikapop">
+<meta name="twitter:description" content="#CoreData核心数据 (iOS9)
+1.什么是核心数据? 有什么用途1.Core Data 是数据持久化存储的最佳方式
+2.数据最终的存储类型可以是：SQLite数据库，XML，二进制，内存里，或自定义数据类型
+在Mac OS X 10.5Leopard及以后的版本中，开发者也可以通过继承NSPersistentStore类以创建自定义的存储格式
+3.好处：能够合理管理内存，避免使用sql的">
+  
+  
+    <link rel="icon" href="favicon.png">
+  
+  
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  
+
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/css/images/logo.png)"></i><span class="site-title">ikapop</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/.">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="http://7xp2md.com1.z0.glb.clouddn.com/resizeApi.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://ikapop.com"></form>
+        
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/.">Home</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/about">About</a></td>
+        
+        <td>
+          
+            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://ikapop.com"></form>
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="http://7xp2md.com1.z0.glb.clouddn.com/resizeApi.png">
+      <h2 id="name">ikapop</h2>
+      <h3 id="title">iOS Developer &amp; Java Web</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Beijing, China</span>
+      <a id="follow" href="https://github.com/kapop">关注我</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        8
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        2
+        <span>标签</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/kapop" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="https://twitter.com/funkapop" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></td>
+          
+          <td><a href="/#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></td>
+          
+          <td><a href="/#" target="_blank" title="dribbble"><i class="fa fa-dribbble"></i></a></td>
+          
+          <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-核心数据? 有什么用途" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <p>#CoreData核心数据 (iOS9)</p>
+<h3 id="1-_u4EC0_u4E48_u662F_u6838_u5FC3_u6570_u636E_3F__u6709_u4EC0_u4E48_u7528_u9014"><a href="#1-_u4EC0_u4E48_u662F_u6838_u5FC3_u6570_u636E_3F__u6709_u4EC0_u4E48_u7528_u9014" class="headerlink" title="1.什么是核心数据? 有什么用途"></a>1.什么是核心数据? 有什么用途</h3><p>1.Core Data 是数据持久化存储的最佳方式</p>
+<p>2.数据最终的存储类型可以是：SQLite数据库，XML，二进制，内存里，或自定义数据类型</p>
+<p>在Mac OS X 10.5Leopard及以后的版本中，开发者也可以通过继承NSPersistentStore类以创建自定义的存储格式</p>
+<p>3.好处：能够合理管理内存，避免使用sql的麻烦，高效</p>
+<h3 id="2-_u4F7F_u7528_u524D_u7684_u914D_u7F6E"><a href="#2-_u4F7F_u7528_u524D_u7684_u914D_u7F6E" class="headerlink" title="2.使用前的配置"></a>2.使用前的配置</h3><h4 id="281_29-__u521B_u5EFA_u5DE5_u7A0B"><a href="#281_29-__u521B_u5EFA_u5DE5_u7A0B" class="headerlink" title="(1). 创建工程"></a>(1). 创建工程</h4><p>注意: 创建工程的时候选择 Use Core Data</p>
+<h4 id="282_29__u4EE3_u7801_u89E3_u91CA"><a href="#282_29__u4EE3_u7801_u89E3_u91CA" class="headerlink" title="(2) 代码解释"></a>(2) 代码解释</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>)NSManagedObjectContext（被管理的数据上下文）</span><br><span class="line"></span><br><span class="line">操作实际内容（操作持久层）</span><br><span class="line"></span><br><span class="line">作用：插入数据，查询数据，删除数据</span><br><span class="line"></span><br><span class="line">(<span class="number">2</span>)NSManagedObjectModel（被管理的数据模型）</span><br><span class="line"></span><br><span class="line">数据库所有表格或数据结构，包含各实体的定义信息</span><br><span class="line"></span><br><span class="line">作用：添加实体的属性，建立属性之间的关系</span><br><span class="line"></span><br><span class="line">操作方法：视图编辑器，或代码</span><br><span class="line"></span><br><span class="line">(<span class="number">3</span>)NSPersistentStoreCoordinator（持久化存储助理）</span><br><span class="line"></span><br><span class="line">相当于数据库的连接器</span><br><span class="line"></span><br><span class="line">作用：设置数据存储的名字，位置，存储方式，和存储时机</span><br><span class="line"></span><br><span class="line">(<span class="number">4</span>)NSManagedObject（被管理的数据记录）</span><br><span class="line"></span><br><span class="line">相当于数据库中的表格记录</span><br><span class="line"></span><br><span class="line">(<span class="number">5</span>)NSFetchRequest（获取数据的请求）</span><br><span class="line"></span><br><span class="line">相当于查询语句</span><br><span class="line"></span><br><span class="line">(<span class="number">6</span>)NSEntityDescription（实体结构）</span><br><span class="line"></span><br><span class="line">相当于表格结构</span><br><span class="line"></span><br><span class="line">(<span class="number">7</span>)后缀为.xcdatamodeld的包</span><br><span class="line"></span><br><span class="line">里面是.xcdatamodel文件，用数据模型编辑器编辑</span><br><span class="line"></span><br><span class="line">编译后为.momd或.mom文件</span><br></pre></td></tr></table></figure>
+<h4 id="283_29-_u4F7F_u7528_u524D_u7684_u914D_u7F6E"><a href="#283_29-_u4F7F_u7528_u524D_u7684_u914D_u7F6E" class="headerlink" title="(3).使用前的配置"></a>(3).使用前的配置</h4><ul>
+<li><p>选择CoreDataDemo.xcdatamodeld, 添加一个Entity, 命名为User</p>
+</li>
+<li><p>添加三个属性name,age,sex, 类型分别是String,Integer 32, String</p>
+</li>
+<li><p>添加依赖关系<br>relationship – User – relationship</p>
+</li>
+<li><p>Eidetor 添加对应的类</p>
+</li>
+</ul>
+<h3 id="3-_u6570_u636E_u7684_u589E_u5220_u6539_u67E5"><a href="#3-_u6570_u636E_u7684_u589E_u5220_u6539_u67E5" class="headerlink" title="3.数据的增删改查"></a>3.数据的增删改查</h3><p>//添加头文件, 获取代理</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#import</span> <span class="string">"User.h"</span></span><br><span class="line"><span class="id">#import</span> <span class="string">"User+CoreDataProperties.h"</span></span><br><span class="line"><span class="id">#import</span> <span class="string">"AppDelegate.h"</span></span><br></pre></td></tr></table></figure>
+<p>获取AppDelegate对象<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先定义</span></span><br><span class="line">AppDelegate *myAppDelegate;</span><br><span class="line"></span><br><span class="line"><span class="comment">//然后在viewDidLoad中初始化</span></span><br><span class="line">myAppDelegate = [UIApplication sharedApplication].<span class="keyword">delegate</span>;</span><br></pre></td></tr></table></figure></p>
+<p><strong>添加数据</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)testInsert</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//创建对象</span></span><br><span class="line">    User*user = (User*)[<span class="built_in">NSEntityDescription</span> insertNewObjectForEntityForName:<span class="string">@"User"</span> inManagedObjectContext:myAppDelegate<span class="variable">.managedObjectContext</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//设置数据</span></span><br><span class="line">    [user setName:<span class="string">@"lisi"</span>];</span><br><span class="line">    [user setAge:[<span class="built_in">NSNumber</span> numberWithInteger:<span class="number">20</span>]];</span><br><span class="line">    [user setSex:<span class="string">@"男"</span>];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//发起请求</span></span><br><span class="line">    <span class="built_in">NSError</span>*error;</span><br><span class="line">    <span class="built_in">BOOL</span> isSaveSuccess = [myAppDelegate<span class="variable">.managedObjectContext</span> save:&amp;error];<span class="comment">//保存（容易忘）</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (!isSaveSuccess) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Error:%@"</span>,error);</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Save Successful!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>查询数据</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)testSelect</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//数据请求（请求）：命令集</span></span><br><span class="line">    <span class="built_in">NSFetchRequest</span>*request = [[<span class="built_in">NSFetchRequest</span> alloc]init];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//NSEntityDescription（实体描述）：表</span></span><br><span class="line">    <span class="built_in">NSEntityDescription</span>*user = [<span class="built_in">NSEntityDescription</span> entityForName:<span class="string">@"User"</span> inManagedObjectContext:myAppDelegate<span class="variable">.managedObjectContext</span>];</span><br><span class="line">    [request setEntity:user];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//发起请求</span></span><br><span class="line">    <span class="built_in">NSError</span>*error;</span><br><span class="line">    <span class="built_in">NSArray</span>*mutablefetchResult = [myAppDelegate<span class="variable">.managedObjectContext</span> executeFetchRequest:request error:&amp;error];</span><br><span class="line">    <span class="keyword">if</span> (mutablefetchResult == <span class="literal">nil</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Error: %@"</span>,mutablefetchResult);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"the count of entry:%lu"</span>,[mutablefetchResult count]);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//输出所有信息</span></span><br><span class="line">    <span class="keyword">for</span> (User*user <span class="keyword">in</span> mutablefetchResult) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"name:%@------age:%@-------sex:%@"</span>,user<span class="variable">.name</span>,user<span class="variable">.age</span>,user<span class="variable">.sex</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>修改数据</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)testUpdate</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//NSFetchRequest 数据请求（请求）：命令集</span></span><br><span class="line">    <span class="built_in">NSFetchRequest</span>*request = [[<span class="built_in">NSFetchRequest</span> alloc]init];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//NSEntityDescription（实体描述）：表</span></span><br><span class="line">    <span class="built_in">NSEntityDescription</span>*user = [<span class="built_in">NSEntityDescription</span> entityForName:<span class="string">@"User"</span> inManagedObjectContext:myAppDelegate<span class="variable">.managedObjectContext</span>];</span><br><span class="line">    [request setEntity:user];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//设置查询条件 NSPredicate （谓词）：查询语句</span></span><br><span class="line">    <span class="built_in">NSPredicate</span>*predicate = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"name == %@"</span>,<span class="string">@"lisi"</span>];</span><br><span class="line">    [request setPredicate:predicate];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//执行查询</span></span><br><span class="line">    <span class="built_in">NSError</span>*error;</span><br><span class="line">    <span class="built_in">NSArray</span> * mutablFetchResult = [myAppDelegate<span class="variable">.managedObjectContext</span> executeFetchRequest:request error:&amp;error];</span><br><span class="line">    <span class="keyword">if</span> (mutablFetchResult == <span class="literal">nil</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Error:%@"</span>,error);</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"the count of entry:%lu"</span>,[mutablFetchResult count]);</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//修改数据</span></span><br><span class="line">    <span class="keyword">for</span> (User*user <span class="keyword">in</span> mutablFetchResult) &#123;</span><br><span class="line">        [user setAge:[<span class="built_in">NSNumber</span> numberWithInteger:<span class="number">999</span>]];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断是否修改成功</span></span><br><span class="line">    <span class="built_in">BOOL</span> isSaveSuccess = [myAppDelegate<span class="variable">.managedObjectContext</span> save:&amp;error];<span class="comment">//保存（容易忘）</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (!isSaveSuccess)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Error:%@"</span>,error);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"update Successful!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>删除数据</strong></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)testDelete</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//数据请求（命令集）</span></span><br><span class="line">    <span class="built_in">NSFetchRequest</span>*request = [[<span class="built_in">NSFetchRequest</span> alloc]init];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//实体描述（表）</span></span><br><span class="line">    <span class="built_in">NSEntityDescription</span>*user = [<span class="built_in">NSEntityDescription</span> entityForName:<span class="string">@"User"</span> inManagedObjectContext:myAppDelegate<span class="variable">.managedObjectContext</span>];</span><br><span class="line">    [request setEntity:user];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//设置查询条件</span></span><br><span class="line">    <span class="built_in">NSPredicate</span>* predicate = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"name == %@"</span>,<span class="string">@"lisi"</span>];</span><br><span class="line">    [request setPredicate:predicate];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//发起请求</span></span><br><span class="line">    <span class="built_in">NSError</span>*error;</span><br><span class="line">    <span class="built_in">NSArray</span>*mutableFetchResult = [myAppDelegate<span class="variable">.managedObjectContext</span> executeFetchRequest:request error:&amp;error];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (mutableFetchResult == <span class="literal">nil</span>) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Error:%@"</span>,error);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"mutableFetchResult %lu"</span>,[mutableFetchResult count]);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (User*user <span class="keyword">in</span> mutableFetchResult) &#123;</span><br><span class="line">        [myAppDelegate<span class="variable">.managedObjectContext</span> deleteObject:user];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//判断是否删除成功</span></span><br><span class="line">    <span class="built_in">BOOL</span> isDeleteSuccess = [myAppDelegate<span class="variable">.managedObjectContext</span> save:&amp;error];<span class="comment">//保存（容易忘）</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (!isDeleteSuccess) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Error:%@"</span>,error);</span><br><span class="line">    </span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"delete Successful!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ikapop.com/2015/12/24/核心数据? 有什么用途/" data-id="ciis8217b0004tkq0dmzcf73k" class="article-share-link">分享到</a>
+      
+        <a href="http://ikapop.com/2015/12/24/核心数据? 有什么用途/#disqus_thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/25/XMPP即时通讯/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/24/通讯录使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/30/CoreGraphics核心绘图 /" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/12/30/CoreGraphics核心绘图 /" class="title"></a></p>
+              <p class="item-date"><time datetime="2015-12-30T02:43:12.000Z" itemprop="datePublished">2015-12-30</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/25/XMPP即时通讯/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/12/25/XMPP即时通讯/" class="title"></a></p>
+              <p class="item-date"><time datetime="2015-12-25T02:25:19.000Z" itemprop="datePublished">2015-12-25</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/24/核心数据? 有什么用途/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/12/24/核心数据? 有什么用途/" class="title"></a></p>
+              <p class="item-date"><time datetime="2015-12-24T07:01:29.000Z" itemprop="datePublished">2015-12-24</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/24/通讯录使用/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/12/24/通讯录使用/" class="title"></a></p>
+              <p class="item-date"><time datetime="2015-12-24T03:01:11.000Z" itemprop="datePublished">2015-12-24</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/23/Core Animation 核心动画/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/12/23/Core Animation 核心动画/" class="title"></a></p>
+              <p class="item-date"><time datetime="2015-12-23T06:33:04.000Z" itemprop="datePublished">2015-12-23</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-github/">hexo github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS-CocoaPods/">iOS CocoaPods</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/hexo-github/" style="font-size: 10px;">hexo github</a> <a href="/tags/iOS-CocoaPods/" style="font-size: 10px;">iOS CocoaPods</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 ikapop<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>. 
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256948974'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256948974%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+ 
+    </div>
+  </div>
+</footer>
+
+    
+
+<script>
+  var disqus_shortname = 'ikapop';
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?6a09f163754848b201d123ce1ca9f09f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	    s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+
+
+  </div>
+</body>
+</html>
