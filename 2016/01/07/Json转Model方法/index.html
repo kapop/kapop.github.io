@@ -3,18 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tags | ikapop</title>
+  <title>Json转换Model方法 | ikapop</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="http://ikapop.com/tags/index.html">
+  <meta name="description" content="常用第三方库Json转Model我目前用的比较多的库MJExtension,YYModel,JSONModel
+MJExtension
+安装方式
+cocoapods：在Podfile中添加pod ‘MJExtension’,添加建议使用pod update –no-repo-update,不然速度奇慢
+手工：下载文件导入主头文件 #import “MJExtension”
+使用
+导入主头文件 #i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Json转换Model方法">
+<meta property="og:url" content="http://ikapop.com/2016/01/07/JSON转Model方法/index.html">
 <meta property="og:site_name" content="ikapop">
-<meta property="og:description" content="iOS">
-<meta property="og:updated_time" content="2015-12-09T05:39:12.000Z">
+<meta property="og:description" content="常用第三方库Json转Model我目前用的比较多的库MJExtension,YYModel,JSONModel
+MJExtension
+安装方式
+cocoapods：在Podfile中添加pod ‘MJExtension’,添加建议使用pod update –no-repo-update,不然速度奇慢
+手工：下载文件导入主头文件 #import “MJExtension”
+使用
+导入主头文件 #i">
+<meta property="og:updated_time" content="2016-01-07T07:42:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tags">
-<meta name="twitter:description" content="iOS">
+<meta name="twitter:title" content="Json转换Model方法">
+<meta name="twitter:description" content="常用第三方库Json转Model我目前用的比较多的库MJExtension,YYModel,JSONModel
+MJExtension
+安装方式
+cocoapods：在Podfile中添加pod ‘MJExtension’,添加建议使用pod update –no-repo-update,不然速度奇慢
+手工：下载文件导入主头文件 #import “MJExtension”
+使用
+导入主头文件 #i">
   
   
     <link rel="icon" href="favicon.png">
@@ -134,16 +152,82 @@
 </aside>
 
       
-      <section id="main"><section class="layout-wrap">
-  <div class="layout-title">
-    <span>Tags</span>
-  </div>
-  <div class="layout-wrap-inner tag-cloud">
+      <section id="main"><article id="post-JSON转Model方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-      <a href="/tags/hexo-github/" style="font-size: 14px;">hexo github</a> <a href="/tags/iOS-CocoaPods/" style="font-size: 14px;">iOS CocoaPods</a> <a href="/tags/总结/" style="font-size: 14px;">总结</a>
     
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Json转换Model方法
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2016/01/07/JSON转Model方法/">
+      <time datetime="2016-01-06T16:00:00.000Z" itemprop="datePublished">2016-01-07</time>
+    </a>
   </div>
-</section></section>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h3 id="u5E38_u7528_u7B2C_u4E09_u65B9_u5E93Json_u8F6CModel"><a href="#u5E38_u7528_u7B2C_u4E09_u65B9_u5E93Json_u8F6CModel" class="headerlink" title="常用第三方库Json转Model"></a>常用第三方库Json转Model</h3><p>我目前用的比较多的库MJExtension,YYModel,JSONModel</p>
+<p><a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="external">MJExtension</a></p>
+<p><strong>安装方式</strong></p>
+<p>cocoapods：在Podfile中添加pod ‘MJExtension’,添加建议使用pod update –no-repo-update,不然速度奇慢</p>
+<p>手工：下载文件导入主头文件 #import “MJExtension”</p>
+<p><strong>使用</strong></p>
+<p>导入主头文件 #import “MJExtension”</p>
+<p>JSON -&gt; Model【最简单的字典转模型】</p>
+<p>NSDictionary *dict = @{@”propertyname”:@”value”};</p>
+<p>Model *model = [Model mj_objectWithKeyValues:dict];</p>
+<p><a href="https://github.com/ibireme/YYModel" target="_blank" rel="external">YYModel</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ikapop.com/2016/01/07/JSON转Model方法/" data-id="cij3xyfzv0000cdq0r0h02gux" class="article-share-link">分享到</a>
+      
+        <a href="http://ikapop.com/2016/01/07/JSON转Model方法/#disqus_thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/01/01/我的2015/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">我的2015</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</section>
       
         <aside id="sidebar">
   
