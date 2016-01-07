@@ -167,19 +167,28 @@
         <h3 id="u5E38_u7528_u7B2C_u4E09_u65B9_u5E93Json_u8F6CModel"><a href="#u5E38_u7528_u7B2C_u4E09_u65B9_u5E93Json_u8F6CModel" class="headerlink" title="常用第三方库Json转Model"></a>常用第三方库Json转Model</h3><p>我目前用的比较多的库MJExtension,YYModel,JSONModel</p>
 <p><a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="external">MJExtension</a></p>
 <p><strong>安装方式</strong></p>
-<p>cocoapods：在Podfile中添加pod ‘MJExtension’,添加建议使用pod update –no-repo-update,不然速度奇慢</p>
+<p>cocoapods：在Podfile中添加pod ‘MJExtension’,添加建议使用pod update (此处两个-)no-repo-update,不然速度奇慢</p>
 <p>手工：下载文件导入主头文件 #import “MJExtension”</p>
 <p><strong>使用</strong></p>
 <p>导入主头文件 #import “MJExtension”</p>
 <p>JSON -&gt; Model【最简单的字典转模型】</p>
-<p>NSDictionary *dict = @{@”propertyname”:@”value”};</p>
-<p>Model *model = [Model mj_objectWithKeyValues:dict];</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSDictionary *dict = @&#123;@&#34;propertyname&#34;:@&#34;value&#34;&#125;;&#10;Model *model = [Model mj_objectWithKeyValues:dict];</span><br></pre></td></tr></table></figure>
+<p>Model contains model【模型中嵌套模型】</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;@interface Status : NSObject&#10;@property (copy, nonatomic) NSString *text;&#10;@property (strong, nonatomic) User *user;&#10;@property (strong, nonatomic) Status *retweetedStatus;&#10;@end&#10;&#10;/***********************************************/&#10;&#10;NSDictionary *dict = @&#123;&#10;    @&#34;text&#34; : @&#34;Agree!Nice weather!&#34;,&#10;    @&#34;user&#34; : @&#123;&#10;        @&#34;name&#34; : @&#34;Jack&#34;,&#10;        @&#34;icon&#34; : @&#34;lufy.png&#34;&#10;    &#125;,&#10;    @&#34;retweetedStatus&#34; : @&#123;&#10;        @&#34;text&#34; : @&#34;Nice weather!&#34;,&#10;        @&#34;user&#34; : @&#123;&#10;            @&#34;name&#34; : @&#34;Rose&#34;,&#10;            @&#34;icon&#34; : @&#34;nami.png&#34;&#10;        &#125;&#10;    &#125;&#10;&#125;;&#10;&#10;// JSON -&#62; Status&#10;Status *status = [Status mj_objectWithKeyValues:dict];</span><br></pre></td></tr></table></figure>
 <p><a href="https://github.com/ibireme/YYModel" target="_blank" rel="external">YYModel</a></p>
-
+<p><strong>安装</strong></p>
+<p>CocoaPods</p>
+<p>在 Podfile 中添加 </p>
+<pre><code>pod &apos;YYModel&apos;
+</code></pre><p>执行 </p>
+<pre><code>pod install 或 pod update。
+</code></pre><p>导入</p>
+<pre><code>#import &quot;YYModel/YYModel.h&quot;
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ikapop.com/2016/01/07/JSON转Model方法/" data-id="cij3ygnce000gmyq00lehomu8" class="article-share-link">分享到</a>
+      <a data-url="http://ikapop.com/2016/01/07/JSON转Model方法/" data-id="cij461znz000gnnq01z5n00nv" class="article-share-link">分享到</a>
       
         <a href="http://ikapop.com/2016/01/07/JSON转Model方法/#disqus_thread" class="article-comment-link">评论</a>
       
@@ -259,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ikapop.com/2016/01/01/我的2015/" data-id="cij3ygnbx0005myq0cq5t3f3t" class="article-share-link">分享到</a>
+      <a data-url="http://ikapop.com/2016/01/01/我的2015/" data-id="cij461znf0005nnq0cnb4j58c" class="article-share-link">分享到</a>
       
         <a href="http://ikapop.com/2016/01/01/我的2015/#disqus_thread" class="article-comment-link">评论</a>
       
@@ -313,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ikapop.com/2015/12/26/Core Animation 核心动画/" data-id="cij3ygnck000imyq0vb4ophtj" class="article-share-link">分享到</a>
+      <a data-url="http://ikapop.com/2015/12/26/Core Animation 核心动画/" data-id="cij461zo4000innq0yttjch5m" class="article-share-link">分享到</a>
       
         <a href="http://ikapop.com/2015/12/26/Core Animation 核心动画/#disqus_thread" class="article-comment-link">评论</a>
       
@@ -369,7 +378,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ikapop.com/2015/12/20/通讯录使用/" data-id="cij3ygnbp0003myq0pthd56j0" class="article-share-link">分享到</a>
+      <a data-url="http://ikapop.com/2015/12/20/通讯录使用/" data-id="cij461zn50003nnq0yfyij62t" class="article-share-link">分享到</a>
       
         <a href="http://ikapop.com/2015/12/20/通讯录使用/#disqus_thread" class="article-comment-link">评论</a>
       
@@ -444,7 +453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ikapop.com/2015/12/18/核心数据? 有什么用途/" data-id="cij3ygnbv0004myq03a3fr94k" class="article-share-link">分享到</a>
+      <a data-url="http://ikapop.com/2015/12/18/核心数据? 有什么用途/" data-id="cij461znc0004nnq0fnlyy97d" class="article-share-link">分享到</a>
       
         <a href="http://ikapop.com/2015/12/18/核心数据? 有什么用途/#disqus_thread" class="article-comment-link">评论</a>
       
@@ -517,7 +526,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ikapop.com/2015/12/15/XMPP即时通讯/" data-id="cij3ygnc8000emyq0oqilys8p" class="article-share-link">分享到</a>
+      <a data-url="http://ikapop.com/2015/12/15/XMPP即时通讯/" data-id="cij461znt000ennq01a7eoh79" class="article-share-link">分享到</a>
       
         <a href="http://ikapop.com/2015/12/15/XMPP即时通讯/#disqus_thread" class="article-comment-link">评论</a>
       
@@ -572,7 +581,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ikapop.com/2015/12/10/hexo写博客/" data-id="cij3ygnc30008myq05mihff1f" class="article-share-link">分享到</a>
+      <a data-url="http://ikapop.com/2015/12/10/hexo写博客/" data-id="cij461znm0008nnq00ia37web" class="article-share-link">分享到</a>
       
         <a href="http://ikapop.com/2015/12/10/hexo写博客/#disqus_thread" class="article-comment-link">评论</a>
       
@@ -666,7 +675,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ikapop.com/2015/12/10/cocoapods使用/" data-id="cij3ygnc5000bmyq0ld6bvrpb" class="article-share-link">分享到</a>
+      <a data-url="http://ikapop.com/2015/12/10/cocoapods使用/" data-id="cij461znp000bnnq0b9dhfbx2" class="article-share-link">分享到</a>
       
         <a href="http://ikapop.com/2015/12/10/cocoapods使用/#disqus_thread" class="article-comment-link">评论</a>
       
@@ -726,7 +735,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ikapop.com/2015/12/10/NSAttributedString属性字符串/" data-id="cij3ygncc000fmyq0cv6l15h0" class="article-share-link">分享到</a>
+      <a data-url="http://ikapop.com/2015/12/10/NSAttributedString属性字符串/" data-id="cij461znw000fnnq06dr9hfqi" class="article-share-link">分享到</a>
       
         <a href="http://ikapop.com/2015/12/10/NSAttributedString属性字符串/#disqus_thread" class="article-comment-link">评论</a>
       
@@ -786,7 +795,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ikapop.com/2015/12/05/CoreGraphics核心绘图 /" data-id="cij3ygncg000hmyq0kvrvpzcz" class="article-share-link">分享到</a>
+      <a data-url="http://ikapop.com/2015/12/05/CoreGraphics核心绘图 /" data-id="cij461zo1000hnnq03dqtm3sq" class="article-share-link">分享到</a>
       
         <a href="http://ikapop.com/2015/12/05/CoreGraphics核心绘图 /#disqus_thread" class="article-comment-link">评论</a>
       
